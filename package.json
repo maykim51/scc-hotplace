@@ -1,0 +1,19 @@
+{
+  "name": "scc-hotplace",
+  "version": "1.0.0",
+  "description": "SCC 핫플검색 프로젝트 - work in progress since Oct 19, 2019",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maykim51/scc-hotplace.git"
+  },
+  "author": "maykim51",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maykim51/scc-hotplace/issues"
+  },
+  "homepage": "https://github.com/maykim51/scc-hotplace#readme"
+}
