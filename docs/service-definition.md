@@ -23,41 +23,43 @@
 * 인기지역 리스트 (34개)  
 : 모든 영문표기는 **한글그대로** 읽는 발음  
 </br>
-    가로수길 garosugil  
-    강남역 gangnamyeog  
-    건대 geondae  
-    경리단길 gyeonglidangil  
-    광화문 gwanghwamun  
-    남양주 namyangju  
-    대학로 daehakro  
-    망원 mangwon  
-    명동 myeongdong  
-    문래 munrae  
-    북촌 bugchon  
-    분당 bundang  
-    상수 sangsu  
-    샤로수길 sharosugil  
-    서래마을 seoraemaeul  
-    서촌 seochon  
-    성수 seongsu  
-    송도 songdo  
-    압구정 apgujeong  
-    양재 yangjae  
-    양평 yangpyeong  
-    여의도 yeouido  
-    연남 yeonnam  
-    을지로 euljiro  
-    이태원 itaewon  
-    익선동 ikseondong  
-    인사동 insadong  
-    일산 ilsan  
-    잠실 jamsil  
-    종로 jongro  
-    청담동 cheongdamdong  
-    한남동 hannamdong  
-    합정 hapjeong  
-    해방촌 haebangchon  
-    홍대 hongdae  
+    가로수길 garosugil  </br>
+    강남역 gangnamyeog  </br>
+    건대 geondae  </br>
+    경리단길 gyeonglidangil  </br>
+    광화문 gwanghwamun  </br>
+    남양주 namyangju  </br>
+    대학로 daehakro  </br>
+    망원 mangwon  </br>
+    명동 myeongdong  </br>
+    문래 munrae  </br>
+    북촌 bugchon  </br>
+    분당 bundang  </br>
+    상수 sangsu  </br>
+    샤로수길 sharosugil </br>  
+    서래마을 seoraemaeul  </br>
+    서촌 seochon  </br>
+    성수 seongsu  </br>
+    송도 songdo  </br>
+    압구정 apgujeong  </br>
+    양재 yangjae  </br>
+    양평 yangpyeong  </br>
+    여의도 yeouido  </br>
+    연남 yeonnam  </br>
+    을지로 euljiro  </br>
+    이태원 itaewon  </br>
+    익선동 ikseondong  </br>
+    인사동 insadong  </br>
+    일산 ilsan  </br>
+    잠실 jamsil  </br>
+    종로 jongro  </br>
+    청담동 cheongdamdong </br>  
+    한남동 hannamdong  </br>
+    합정 hapjeong  </br>
+    해방촌 haebangchon  </br>
+    홍대 hongdae  </br>
+
+
 ```
 {
     name: {type: String, required:true, unique: true},
@@ -67,11 +69,15 @@
     id: mongoose.Schema.Types.ObjectId
 }
 ```
+
 - `GET` /api/v1/areas/{*name}
 - `POST` /api/v1/areas/
 - `PUT` /api/v1/areas/{name}
 - `DELETE` /api/v1/areas/{name}
+
 </br>
+</br>
+
 // 🔨 Where to place offset and limit? (limit=6, offset=0)
 // 🔨 rank 구현 https://m.blog.naver.com/PostView.nhn?blogId=secret245&logNo=220609053013&proxyReferer=https%3A%2F%2Fwww.google.com%2F
 
@@ -101,6 +107,7 @@
 </br>
 
 **imageSchema**
+  </br>
 {
     width: Number,
     height: Number
