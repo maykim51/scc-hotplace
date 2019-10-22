@@ -462,14 +462,14 @@ fieldset {
     text-align: center;
 }
 
-@media (min-width: 421px) and (max-width: 900px) {
+@media (min-width: 481px) and (max-width: 900px) {
     .box_item {
         flex: 0 1 49%;
         margin-bottom: 12px;
     }
 }
 
-@media (min-width: 320px) and (max-width: 420px) {
+@media (min-width: 320px) and (max-width: 480px) {
     .box_item {
         flex: 0 1 100%;
         margin-bottom: 12px;
