@@ -504,20 +504,20 @@ fieldset {
 }
 
 .related_box_list_wrap {
-    /* overflow: auto;
-    overflow-y: hidden; */
-    overflow: hidden;
-    width: 100%;
+    overflow: auto;
+    overflow-y: hidden;
+    /* overflow: hidden; */
+    width: 90vw;
     flex: 1 1;
     margin: 0 12px;
 }
 
 .related_box_list {
     flex: 1 1;
-    /* width: 1600px; */
+    width: 1600px;
     margin: 0px;
     height: 130px;
-    /* overflow-wrap: unset; */
+    overflow-wrap: unset;
 }
 
 .related_box_item {
@@ -578,20 +578,20 @@ fieldset {
     padding: 70px 0 16px 0;
 }
 .deatil {
-    width:100%;
+    /* width:90vw; */
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
+
 .detail_map {
-    height: 180px;
-    width: 300px;
-    flex: 1 300px;
+    height: 200px;
+    flex: 1 360px;
     background-image: url('./images/sample_map.png');
     background-size: cover;
 }
 .detail_desc {
-    width: 300px;
-    flex: 2;
+    flex: 2 720px;
     display: block;
 }
 
