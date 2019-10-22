@@ -86,7 +86,7 @@ textarea {
     font-size: 100%;
     line-height: 1.15;
     margin: 0;
-    border:none;
+    border: none;
 }
 
 button,
@@ -184,6 +184,9 @@ template {
 }
 
 
+/* custom CSS */
+/* global */
+
 .fullwidth {
     width: 100%;
 }
@@ -195,28 +198,34 @@ template {
     z-index: 1;
     height: 60px;
 }
+
 .main_container {
-    position: absolute;
-    top: 60px;
+    box-sizing: border-box;
+    padding-top:60px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .header,
 .main {
     max-width: 1080px;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
 }
 
 .header {
     position: relative;
     height: 100%;
 }
+
 .logo_area {
     position: relative;
     height: 100%;
 }
+
 .logo_area h1 {
     position: absolute;
-    top:50%;
+    top: 50%;
     margin-top: -15px;
     padding: 0 12px;
 }
@@ -239,35 +248,37 @@ fieldset {
 
 .search_outline {
     display: block;
-    width:170px;
+    width: 170px;
     height: 40px;
     border: 1px solid #ccc;
-    /* padding: 6px; */
 }
+
 .search_input {
     margin: 9px 12px 0 6px;
     font-size: 18px;
     line-height: 22px;
-    outline: none;;
+    outline: none;
+    ;
     width: 140px;
     display: inline-block;
 }
+
 .blind {
     display: none;
 }
 
 .search_clear_btn {
     position: absolute;
-    top:12px;
-    right:50px;
+    top: 12px;
+    right: 50px;
     background-color: transparent;
-    padding:0;
+    padding: 0;
 }
 
 .search_clear_btn_ico {
     display: block;
-    width:16px;
-    height:16px;
+    width: 16px;
+    height: 16px;
     background-image: url('./images/sample_clear.png');
     background-size: 16px;
 }
@@ -279,20 +290,20 @@ fieldset {
     background-color: orange;
     position: absolute;
     top: 1px;
-    right:0px;
+    right: 0px;
 }
 
 .search_btn_ico {
     display: block;
-    width:24px;
-    height:24px;
+    width: 24px;
+    height: 24px;
     background-image: url('./images/sample_search.png');
     background-size: 24px;
 }
 
 .search_keyword_suggest {
     background-color: white;
-    width:300px;
+    width: 300px;
     z-index: 2;
     padding-top: 15px;
 }
@@ -309,7 +320,6 @@ fieldset {
     border-bottom: solid 1px #ccc;
 }
 
-
 ul {
     margin-block-start: 0;
     margin-block-end: 0;
@@ -324,19 +334,29 @@ li {
 }
 
 .search_count {
-    text-align:center;
+    text-align: center;
 }
+
+footer {
+    margin-top: auto;
+    height: 60px;
+    background-color: #eee;
+    text-align: center;
+    padding-top: 25px;
+    z-index: 1;
+}
+
+
+/* search result page */
 
 .box_container {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 12px;
 }
 
 .box_item {
     border: 1px solid #ccc;
-    /* flex-grow: 1; */
     flex: 1 330px;
     margin: 6px;
 }
@@ -349,6 +369,25 @@ li {
     height: 200px;
     background-image: url('./images/sample_image.jpg');
     background-size: cover;
+    position: relative;
+}
+
+.box_rank {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.box_rank_num {
+    font-size: 22px;
+    line-height: 22px;
+    position: absolute;
+    top: 14px;
+    display: block;
+    width: 50px;
+    text-align: center;
 }
 
 .box_txt {
@@ -359,9 +398,170 @@ li {
     text-align: center;
 }
 
-.footer {
-    height: 60px;
-    background-color: #eee;
+
+/* serch-no result page */
+.search_no_msg {
+    width: 100%;
+    margin: 40px auto;
     text-align: center;
-    padding-top: 25px;
+    font-size: 18px;
+    line-height: 26px;
 }
+
+.sch_no_ico {
+    display: block;
+    width: 100%;
+    height: 100px;
+    background-image: url('./images/sample_search.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.keyword_suggest {
+    width: 300px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+}
+
+
+/* detail page */
+.goto_list {
+    font-size: 14px;
+}
+.related_box_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 130px;
+}
+
+.related_prv {
+    height: 130px;
+    width: 30px;
+    background-color: white;
+    border: 1px solid #ccc;
+    flex: 30px 30px;
+}
+
+.related_box_list_wrap {
+    overflow: auto;
+    overflow-y: hidden;
+    flex: 1 1;
+    margin: 0 12px;
+}
+
+.related_box_list {
+    flex: 1 1;
+    width: 1600px;
+    margin: 0px;
+    height: 130px;
+    overflow-wrap: unset;
+}
+
+.related_box_item {
+    display: inline-block;
+    border: 1px solid #ccc;
+    height: 128px;
+    width: 100px;
+    margin: 0 4px;
+}
+
+.related_box_item:hover {
+    border: 1px solid red;
+}
+
+.related_box_img {
+    height: 100px;
+    background-image: url('./images/sample_image.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.related_box_rank {
+    width: 30px;
+    height: 20px;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.related_box_rank_num {
+    font-size: 14px;
+    line-height: 14px;
+    position: absolute;
+    top: 4px;
+    display: block;
+    width: 30px;
+    text-align: center;
+}
+
+.related_box_txt {
+    padding: 0;
+}
+
+.related_box_txt h3 {
+    font-size: 14px;
+    margin: 6px 0;
+}
+
+.related_box_txt p {
+    display: block;
+    height: 24px;
+    overflow: hidden;
+    font-size: 12px;
+    margin: 4px 0;
+}
+
+.detail_title {
+    padding: 70px 0 16px 0;
+}
+.deatil {
+    width:100%;
+    height: 180px;
+}
+.detail_map {
+    height: 100%;
+    width: 300px;
+    background-image: url('./images/sample_map.png');
+    background-size: cover;
+    float:left;
+}
+.detail_desc {
+    display: inline-block;
+    margin-left:16px;
+}
+
+.insta_count {
+    padding-top: 30px;
+    font-size: 18px;
+}
+
+.insta_box_img {
+    height: 150px;
+    width: 150px;
+    background-image: url('./images/sample_image.jpg');
+    background-size: cover;
+    float:left;
+}
+
+.insta_box_txt {
+    height: 150px;
+    overflow: hidden;
+}
+
+.insta_box_tags {
+    font-size: 14px;
+    line-height: 21px;
+    color: navy;
+    padding: 0 10px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .related_prv {
+        display: none;
+    }
+    .related_box_list_wrap {
+        margin: 0;
+    }
+}
+
