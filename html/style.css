@@ -1,3 +1,4 @@
+/* normalize CSS */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 html {
@@ -193,7 +194,7 @@ template {
 
 .main_container {
     box-sizing: border-box;
-    padding-top:60px;
+    padding-top: 60px;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -234,6 +235,7 @@ footer {
 
 
 /* global > header */
+
 .header_container {
     border-bottom: 1px solid #ccc;
     background-color: white;
@@ -342,7 +344,8 @@ fieldset {
 }
 
 .search_keyword_subtitle,
-.search_keyword_item {
+.search_keyword_item,
+.keyword_item {
     padding: 8px;
     border-bottom: solid 1px #ccc;
 }
@@ -360,6 +363,7 @@ fieldset {
     text-align: center;
     padding: 50px 0;
 }
+
 .search_main {
     margin: 0 auto;
     width: 284px;
@@ -387,6 +391,7 @@ fieldset {
     position: absolute;
     top: 20px;
     right: 60px;
+    background-color: transparent;
 }
 
 .search_btn_ico_big {
@@ -396,9 +401,9 @@ fieldset {
 }
 
 @media (min-width: 480px) {
-.mb_view {
-    display: none;
-}
+    .mb_view {
+        display: none;
+    }
 }
 
 
@@ -416,8 +421,8 @@ fieldset {
 
 .box_item {
     border: 1px solid #ccc;
-    flex: 1 330px;
-    margin: 6px;
+    flex: 0 1 32.5%;
+    margin-bottom: 12px;
 }
 
 .box_item:hover {
@@ -457,8 +462,23 @@ fieldset {
     text-align: center;
 }
 
+@media (min-width: 421px) and (max-width: 900px) {
+    .box_item {
+        flex: 0 1 49%;
+        margin-bottom: 12px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 420px) {
+    .box_item {
+        flex: 0 1 100%;
+        margin-bottom: 12px;
+    }
+}
+
 
 /* serch-no result page */
+
 .search_no_msg {
     width: 100%;
     margin: 40px auto;
@@ -488,6 +508,7 @@ fieldset {
 .goto_list {
     font-size: 14px;
 }
+
 .related_box_container {
     display: flex;
     flex-wrap: wrap;
@@ -577,8 +598,8 @@ fieldset {
 .detail_title {
     padding: 70px 0 16px 0;
 }
+
 .deatil {
-    /* width:90vw; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -590,6 +611,7 @@ fieldset {
     background-image: url('./images/sample_map.png');
     background-size: cover;
 }
+
 .detail_desc {
     flex: 2 720px;
     display: block;
@@ -605,7 +627,7 @@ fieldset {
     width: 150px;
     background-image: url('./images/sample_image.jpg');
     background-size: cover;
-    float:left;
+    float: left;
 }
 
 .insta_box_txt {
@@ -624,8 +646,8 @@ fieldset {
     .related_prv {
         display: none;
     }
+
     .related_box_list_wrap {
         margin: 0;
     }
 }
-
