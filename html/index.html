@@ -12,27 +12,32 @@
 <body>
     <div class="header_container fullwidth">
         <header class="header">
-            <div class="logo_area">
+            <div class="logo_area_main">
                 <h1>
                     <a href="#">
                         <span class="logo">핫플검색</span>
                     </a>
                 </h1>
             </div>
-            <div class="search">
+        </header>
+    </div>
+    <div class="main_container fullwidth">
+        <main class="main">
+            <h1 class="main_copy">지금 인스타그램에서 <span class="mb_view"><br/></span>핫한 맛집은?</h1>
+            <div class="search_main">
                 <form>
                     <fieldset>
                         <legend class="blind">검색</legend>
-                        <span class="search_outline">
-                            <input type="text" title="검색" class="search_input" placeholder="강남역" />
+                        <span class="search_outline search_outline_big">
+                            <input type="text" title="검색" class="search_input search_input_big" placeholder="강남역" />
                         </span>
-                        <button type="button" class="search_clear_btn">
+                        <button type="button" class="search_clear_btn_big">
                             <span class="blind">지우기</span>
                             <span class="search_clear_btn_ico"></span></button>
-                        <button type="button" class="search_btn">
+                        <button type="button" class="search_btn search_btn_big">
                             <span class="blind">검색</span>
-                            <span class="search_btn_ico"></span></button>
-                        <!-- <div class="search_keyword_suggest">
+                            <span class="search_btn_ico search_btn_ico_big"></span></button>
+                        <div class="search_keyword_suggest">
                             <ul class="search_keyword_suggest_ul">
                                 <span class="search_keyword_subtitle">추천지역</span>
                                 <div class="search_keyword_list">
@@ -69,56 +74,9 @@
                                 </div>
                             </ul>
 
-                        </div> -->
+                        </div>
                     </fieldset>
                 </form>
-            </div>
-        </header>
-    </div>
-    <div class="main_container fullwidth">
-        <main class="main search_result">
-            <div class="search_no_msg">
-                <span class="sch_no_ico"></span>
-                <span class="sch_no_txt">지금은 서울만 가능해요<br>
-                    이런 키워드는 어떠세요?</span>
-            </div>
-            <div class="keyword_suggest">
-                <ul class="keyword_suggest_ul">
-                    <span class="blind">추천지역</span>
-                    <div class="keyword_list">
-                        <a href="#">
-                            <li class="keyword_item">가로수길</li>
-                        </a>
-                        <a href="#">
-                            <li class="keyword_item">강남역</li>
-                        </a>
-                        <a href="#">
-                            <li class="keyword_item">건대</li>
-                        </a>
-                        <a href="#">
-                            <li class="keyword_item">경리단길</li>
-                        </a>
-                        <a href="#">
-                            <li class="keyword_item">광화문</li>
-                        </a>
-                        <a href="#">
-                            <li class="keyword_item">넘영쥬</li>
-                        </a>
-                        <a href="#">
-                            <li class="keyword_item">대학로</li>
-                        </a>
-                        <a href="#">
-                            <li class="keyword_item">망원</li>
-                        </a>
-                        <a href="#">
-                            <li class="keyword_item">명동</li>
-                        </a>
-                        <a href="#">
-                            <li class="keyword_item">문래</li>
-                        </a>
-                    </div>
-                </ul>
-
             </div>
         </main>
         <footer>
