@@ -11,8 +11,8 @@ function SearchInput(props) {
 
 function SuggestList(props) {
     return (
-      <a href={props.href}>
-        <li className="search_keyword_item">{props.title}</li>
+      <a href={props.url}>
+        <li className="search_keyword_item">{props.name}</li>
       </a>
     );
   }
@@ -27,8 +27,8 @@ class SearchSuggest extends Component {
           <span className="search_keyword_subtitle">추천지역</span>
           <div className="search_keyword_list">
           {this.props.list.map((list, i) => {
-                        return (<SuggestList href={list.href}
-                                            title={list.title}
+                        return (<SuggestList url={list.url}
+                                            name={list.name}
                                               key={i}/>);
                     })}
           </div>
@@ -63,32 +63,32 @@ class Search extends Component {
       cursorOn: false,
       suggestList: [
         {
-          href: '#',
-          title: '가로수길',
+          url: '#',
+          name: '가로수길',
         },
         {
-          href: '#',
-          title: '강남역',
+          url: '#',
+          name: '강남역',
         },
         {
-          href: '#',
-          title: '건대',
+          url: '#',
+          name: '건대',
         },
         {
-          href: '#',
-          title: '경리단길',
+          url: '#',
+          name: '경리단길',
         },
         {
-          href: '#',
-          title: '광화문',
+          url: '#',
+          name: '광화문',
         },
         {
-          href: '#',
-          title: '남양주',
+          url: '#',
+          name: '남양주',
         },
         {
-          href: '#',
-          title: '대학로',
+          url: '#',
+          name: '대학로',
         },
       ],
     };
