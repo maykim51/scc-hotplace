@@ -23,6 +23,8 @@
 * 인기지역 리스트 (34개)  
 : 모든 영문표기는 **한글그대로** 읽는 발음  
 </br>
+
+
 <details>
     <summary>전체 목록(접기/펼치기)</summary>
 
@@ -88,7 +90,19 @@
 </br>
 </br>
 
-**Venues : 핫플 (식당)**
+🔨🔨🔨 (과연 필요한 api인가..?)
+**VenueList : 특정지역의 핫플목록**
+- `GET` /api/v1/venueList/{area}
+- `POST` /api/v1/venueList/
+- `PUT` /api/v1/venueList/{area}
+- `DELETE` /api/v1/venues/{area}
+</br>
+</br>
+
+
+
+
+**Venues : 핫플**
 ```
 {
     name: {type: String, required:true, unique: true},
@@ -128,6 +142,8 @@
 ----
   키워드에 해당하는 area를 반환합니다.  
   Returns area mapped to the keyword.
+</br>
+
 
 <details>
     <summary>클릭해서 펼치기</summary>
@@ -318,50 +334,111 @@
 <details>
     <summary>클릭해서 펼치기</summary>
 
+    * **URL**
+
+    /api/v1/venues/{name}
+
+    * **Method:**
+
+    `PUT` 
+    
+    *  **URL Params**
+    **Required:** 
+    name : String
+
+    * **Data Params**
+    **Required:** 
+    ```
+    {
+            name: "karosugil",
+            id: mongoose.Schema.Types.ObjectId
+        }
+    ```  
+
+    * **Success Response:**
+
+    * **Code:** 200 OK<br />
+        **Content:** `{ success: "Area is successfully updated."}`
+    
+    * **Error Response:**
+
+    * **Code:** 404 NOT FOUND <br />
+        **Content:** `{ error : "Area with given name does not exist." }`
+
+    OR
+
+    * **Code:** 400 BAD REQUEST <br />
+        **Content:** `{ error : "Please check area syntax." }`
+
+
+    * **Sample Call:**
+
+        ```javascript
+            let update_area = {name: "karosugil"};
+
+            $.ajax({
+            url: "/api/v1/areas/garosugil",
+            datatype: "json",
+            data: update_area,
+            type : "PUT",
+            success : function(r) {
+                console.log(r);
+            }
+            });
+        ```
+
+</details>
+
+
+</br>
+</br>
+
+
+### 5. Add a Venue
+----
+  핫플(Venue)를 생성하고 결과를 반환합니다.
+  Creates a venue and returns the result.
+<details>
+    <summary>클릭해서 펼치기</summary>
+
+
 * **URL**
 
-  /api/v1/venues/{name}
+  /api/v1/venues/
 
 * **Method:**
 
-  `PUT` 
+  `POST`
   
 *  **URL Params**
-**Required:** 
-   name : String
+   None
 
 * **Data Params**
 **Required:** 
    ```
    {
-        name: "karosugil",
-        id: mongoose.Schema.Types.ObjectId
+        "name": {type: String, required:true, unique: true},
+        "category": {type: String, default: restaurant}
     }
-```  
+   ```
 
 * **Success Response:**
 
-  * **Code:** 200 OK<br />
-    **Content:** `{ success: "Area is successfully updated."}`
+  * **Code:** 201 CREATED<br />
+    **Content:** `{ success: "The venue is successfully created."}`
  
 * **Error Response:**
 
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "Area with given name does not exist." }`
-
-  OR
-
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : "Please check area syntax." }`
-
+    **Content:** `{ error : "Please check the venue syntax." }`
 
 * **Sample Call:**
 
     ```javascript
-        let update_area = {name: "karosugil"};
+        let new_venue = {name: "대도식당", category: "restaurant"};
 
         $.ajax({
-        url: "/api/v1/areas/garosugil",
+        url: "/api/v1/venues",
         datatype: "json",
         data: new_area,
         type : "POST",
@@ -372,8 +449,112 @@
     ```
 
 </details>
+
 </br>
 </br>
 
 
-... Work in progress.
+
+
+
+
+### 6. Update a Venue
+----
+  존재하는 핫플(Venue)을 업데이트 하고 결과를 반환합니다.
+  Updates an existing venue and returns the result.
+
+
+
+<details>
+    <summary>클릭해서 펼치기</summary>
+
+
+업데이트할 수 있는 항목:  
+    *name*  
+    *description*  
+    *url_detail*
+    *url_naver*
+    *url_instagram*
+    *isInNaver*
+    *category*
+    *area* 
+
+
+*  **URL**
+
+/api/v1/venues/{id}
+
+* **Method:**
+
+`PUT` 
+
+*  **URL Params**
+**Required:** 
+    id : String
+
+* **Data Params**
+    *아래 모두 항목별로 옵션으로 적용 가능*
+    ```
+    {
+        "name": "쌍둥이네 해물식당 2호점",
+        "description" : "쌍둥이네 해물식당 두번째 지점",
+        "url_detail" : "/restaurants/?id=1", //상세페이지 url 확정하고!
+        "url_naver" : "https://store.naver.com/restaurants/detail?id=1019007696",
+        "url_instagram" : "https://www.instagram.com/explore/tags/쌍둥이네해물식당/",
+        "isInNaver" : True,
+        "category": "restaurant",
+        "area" : mongoose.Schema.Types.ObjectId
+    }
+    ```  
+
+* **Success Response:**
+
+* **Code:** 200 OK<br />
+    **Content:** `{ success: "Venue is successfully updated."}`
+
+* **Error Response:**
+
+* **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "Venue with given name does not exist." }`
+
+OR
+
+* **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error : "Please check venue syntax." }`
+
+
+* **Sample Call:**
+
+        ```javascript
+            let update_venue = {
+                "name": "쌍둥이네 해물식당 2호점",
+                "description" : "쌍둥이네 해물식당 두번째 지점",
+                "url_detail" : "/restaurants/?id=1", //상세페이지 url 확정하고!
+                "url_naver" : "https://store.naver.com/restaurants/detail?id=1019007696",
+                "url_instagram" : "https://www.instagram.com/explore/tags/쌍둥이네해물식당/",
+                "isInNaver" : True,
+                "category": "restaurant",
+                "area" : mongoose.Schema.Types.ObjectId
+            };
+
+            $.ajax({
+            url: "/api/v1/venues/1234",
+            datatype: "json",
+            data: update_venue,
+            type : "PUT",
+            success : function(r) {
+                console.log(r);
+            }
+            });
+        ```
+
+</details>
+
+
+</br>
+</br>
+
+
+
+
+Work In Progess!
