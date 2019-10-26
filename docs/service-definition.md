@@ -2,7 +2,7 @@
 핫플검색 웹서비스의 API를 게시합니다.
 
 * DB Schema written in Mongoose template.
-* First draft as of 2019-10-20
+* First draft as of 2019-10-26
 
 
 ## DB Schema and List of API
@@ -23,6 +23,9 @@
 * 인기지역 리스트 (34개)  
 : 모든 영문표기는 **한글그대로** 읽는 발음  
 </br>
+<details>
+    <summary>전체 목록(접기/펼치기)</summary>
+
     가로수길 garosugil  </br>
     강남역 gangnamyeog  </br>
     건대 geondae  </br>
@@ -58,6 +61,7 @@
     합정 hapjeong  </br>
     해방촌 haebangchon  </br>
     홍대 hongdae  </br>
+</details>
 
 
 ```
@@ -125,6 +129,9 @@
   키워드에 해당하는 area를 반환합니다.  
   Returns area mapped to the keyword.
 
+<details>
+    <summary>클릭해서 펼치기</summary>
+
 * **URL**
 
   /api/v1/search/{keyword}
@@ -164,6 +171,8 @@
       }
     });
   ```
+
+</details>
 </br>
 </br>
 
@@ -171,6 +180,9 @@
 ----
   인기지역(Area) 목록 또는 인기지역을 반환합니다.
   Returns list of area or area.
+
+<details>
+    <summary>클릭해서 펼치기</summary>
 
 * **URL**
 
@@ -234,6 +246,8 @@
         }
         });
     ```
+</details>
+
 </br>
 </br>
 
@@ -242,6 +256,9 @@
 ----
   인기지역(Area)을 생성하고 결과를 반환합니다.
   Creates an area and returns the result.
+<details>
+    <summary>클릭해서 펼치기</summary>
+
 
 * **URL**
 
@@ -284,6 +301,9 @@
         }
         });
     ```
+
+</details>
+
 </br>
 </br>
 
@@ -294,6 +314,9 @@
 
   업데이트할 수 있는 항목:  
   *name*   
+
+<details>
+    <summary>클릭해서 펼치기</summary>
 
 * **URL**
 
@@ -347,6 +370,8 @@
         }
         });
     ```
+
+</details>
 </br>
 </br>
 
