@@ -152,7 +152,7 @@ class Search extends Component {
   };
 
   render() {
-    var sgtList = this.state.suggestList.map((list, i) => {
+    var suggestList = this.state.suggestList.map((list, i) => {
       return (
         <SuggestList
           url={list.url}
@@ -181,7 +181,7 @@ class Search extends Component {
             <SearchBtn />
             <SearchSuggest
               blind={this.state.inputFocus ? 'search_keyword_suggest' : 'blind'}
-              list={sgtList}
+              list={suggestList}
               onMouseEnter={this.suggestHoverOn}
               onMouseLeave={this.suggestHoverOff}
             />
