@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// 검색어 입력 필드
 function SearchInput(props) {
   return (
     <span className="search_outline">
@@ -18,6 +19,7 @@ function SearchInput(props) {
   );
 }
 
+// 자동완성 키워드 목록 (낱개)
 function SuggestList(props) {
   return (
     <a href={props.url} onClick={props.onClick}>
@@ -26,6 +28,7 @@ function SuggestList(props) {
   );
 }
 
+// 자동완성 키워드 목록 (모음 박스)
 class SearchSuggest extends Component {
   render() {
     return (
@@ -43,6 +46,7 @@ class SearchSuggest extends Component {
   }
 }
 
+// 입력된 검색어 삭제 버튼 (X버튼)
 function SearchClearBtn(props) {
   return (
     <button type="button" className={props.blind} onClick={props.onClick}>
@@ -52,6 +56,7 @@ function SearchClearBtn(props) {
   );
 }
 
+// 검색버튼
 function SearchBtn(props) {
   return (
     <button type="submit" className="search_btn">
@@ -61,6 +66,7 @@ function SearchBtn(props) {
   );
 }
 
+// 검색창 전체
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -102,6 +108,7 @@ class Search extends Component {
     };
   }
 
+  // input FocusOn일때 자동완성 키워드 목록 보이기
   suggestOn = () => {
     if (this.state.SuggestHover === false) {
       this.setState({ inputFocus: true });
@@ -114,6 +121,7 @@ class Search extends Component {
     }
   };
 
+  // 자동완성 키워드 목록 mouseOn이면 목록 보여주기 유지
   suggestHoverOn = () => {
     this.setState({ SuggestHover: true });
   };
@@ -122,17 +130,20 @@ class Search extends Component {
     this.setState({ SuggestHover: false });
   };
 
+  // input에 검색어 입력시 X 버튼 나타남
   inputHandle = e => {
     var value = e.target.value;
     this.setState({ onChange: value.length });
     this.setState({ value: value });
   };
 
+  // inputClear버튼 (X버튼) 클릭시 입력된 검색어 삭제
   inputClear = () => {
     this.setState({ value: '' });
     this.setState({ onChange: 0 });
   };
 
+  // 자동완성 키워드 클릭시 input에 자동 입력
   autoComp = keyword => {
     this.setState({ value: keyword });
     this.setState({ inputFocus: false });
@@ -181,6 +192,7 @@ class Search extends Component {
   }
 }
 
+// 헤더영역 전체
 class Header extends Component {
   render() {
     return (

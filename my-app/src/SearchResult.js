@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Footer from './Footer';
 
+// 검색결과 박스 (낱개)
 function BoxItem(props) {
   return (
     <li className="box_item">
-      <a href="#">
+      <a href="http://#">
         <div
           className="box_img"
           style={{ backgroundImage: `url(${props.backgroundImage})` }}
@@ -22,6 +22,8 @@ function BoxItem(props) {
     </li>
   );
 }
+
+// 검색결과 화면 전체 (박스 모음)
 class SearchResult extends Component {
   constructor(props) {
     super(props);
@@ -92,7 +94,6 @@ class SearchResult extends Component {
           </ul>
           <p className="loading">다음 페이지를 불러오고 있습니다.</p>
         </main>
-        {/* <Footer /> */}
       </div>
     );
   }
