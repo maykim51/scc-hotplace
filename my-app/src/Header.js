@@ -3,34 +3,39 @@ import React, { Component } from 'react';
 function SearchInput(props) {
   return (
     <span className="search_outline">
-      <input id="search_input" type="text" title="검색" className="search_input" placeholder="강남역" onFocus={props.cursorOn} onBlur={props.cursorOn}
+      <input
+        id="search_input"
+        type="text"
+        title="검색"
+        className="search_input"
+        placeholder="강남역"
+        onFocus={props.cursorOn} 
+        onBlur={props.cursorOn}
+        onChange={props.onChange}
+        value={props.value}
       />
     </span>
   );
 }
 
 function SuggestList(props) {
-    return (
-      <a href={props.url}>
-        <li className="search_keyword_item">{props.name}</li>
-      </a>
-    );
-  }
+  return (
+    <a href={props.url}>
+      <li className="search_keyword_item">{props.name}</li>
+    </a>
+  );
+}
 
 class SearchSuggest extends Component {
   render() {
     return (
-      <div
-        className={this.props.cursorOn ? 'search_keyword_suggest' : 'blind'}
-      >
+      <div className={this.props.blind}>
         <ul className="search_keyword_suggest_ul">
           <span className="search_keyword_subtitle">추천지역</span>
           <div className="search_keyword_list">
-          {this.props.list.map((list, i) => {
-                        return (<SuggestList url={list.url}
-                                            name={list.name}
-                                              key={i}/>);
-                    })}
+            {this.props.list.map((list, i) => {
+              return <SuggestList url={list.url} name={list.name} key={i}/>;
+            })}
           </div>
         </ul>
       </div>
@@ -39,28 +44,30 @@ class SearchSuggest extends Component {
 }
 
 function SearchClearBtn(props) {
-    return (
-      <button type="button" className="search_clear_btn">
-        <span className="blind">지우기</span>
-        <span className="search_clear_btn_ico"></span>
-      </button>
-    );
-  }
-  
-  function SearchBtn(props) {
-    return (
-      <button type="submit" className="search_btn">
-        <span className="blind">검색</span>
-        <span className="search_btn_ico"></span>
-      </button>
-    );
-  }
+  return (
+    <button type="button" className={props.blind} onClick={props.onClick}>
+      <span className="blind">지우기</span>
+      <span className="search_clear_btn_ico"></span>
+    </button>
+  );
+}
+
+function SearchBtn(props) {
+  return (
+    <button type="submit" className="search_btn">
+      <span className="blind">검색</span>
+      <span className="search_btn_ico"></span>
+    </button>
+  );
+}
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
       cursorOn: false,
+      onChange: 0,
+      value: null,
       suggestList: [
         {
           url: '#',
@@ -96,18 +103,38 @@ class Search extends Component {
 
   suggestHandle = () => {
     this.setState({ cursorOn: !this.state.cursorOn });
-  }
+  };
+
+  inputHandle = e => {
+    var value = e.target.value;
+    this.setState({ onChange: value.length });
+    this.setState({ value: value });
+  };
+
+  inputClearHandle = () => {
+    this.setState({ value: '' });
+  };
 
   render() {
     return (
       <div className="search">
-        <form>
+        <form autocomplete="off">
           <fieldset>
             <legend className="blind">검색</legend>
-            <SearchInput cursorOn={this.suggestHandle} />
-            <SearchClearBtn />
+            <SearchInput
+              cursorOn={this.suggestHandle}
+              onChange={this.inputHandle}
+              value={this.state.value}
+            />
+            <SearchClearBtn
+              blind={this.state.onChange > 0 ? 'search_clear_btn' : 'blind'}
+              onClick={this.inputClearHandle}
+            />
             <SearchBtn />
-            <SearchSuggest cursorOn={this.state.cursorOn} list={this.state.suggestList} />
+            <SearchSuggest
+              blind={this.state.cursorOn ? 'search_keyword_suggest' : 'blind'}
+              list={this.state.suggestList}
+            />
           </fieldset>
         </form>
       </div>

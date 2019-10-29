@@ -431,7 +431,7 @@ fieldset {
 
 .box_img {
   height: 200px;
-  background-image: url('./images/sample_image.jpg');
+  /* background-image: url('./images/sample_image.jpg'); */
   background-size: cover;
   position: relative;
 }
@@ -460,6 +460,7 @@ fieldset {
 
 .loading {
   text-align: center;
+  display: block;
 }
 
 @media (min-width: 481px) and (max-width: 900px) {
@@ -555,7 +556,7 @@ fieldset {
 
 .related_box_img {
   height: 100px;
-  background-image: url('./images/sample_image.jpg');
+  /* background-image: url('./images/sample_image.jpg'); */
   background-size: cover;
   position: relative;
 }
@@ -625,7 +626,7 @@ fieldset {
 .insta_box_img {
   height: 150px;
   width: 150px;
-  background-image: url('./images/sample_image.jpg');
+  /* background-image: url('./images/sample_image.jpg'); */
   background-size: cover;
   float: left;
 }
