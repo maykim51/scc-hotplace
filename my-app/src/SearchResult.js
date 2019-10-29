@@ -3,20 +3,20 @@ import Footer from './Footer';
 
 function BoxItem(props) {
   return (
-    <li class="box_item">
+    <li className="box_item">
       <a href="#">
         <div
-          class="box_img"
+          className="box_img"
           style={{ backgroundImage: `url(${props.backgroundImage})` }}
         >
-          <div class="box_rank">
-            <span class="box_rank_num">{props.rank}등</span>
+          <div className="box_rank">
+            <span className="box_rank_num">{props.rank}등</span>
           </div>
         </div>
-        <div class="box_txt">
-          <h2 class="box_title">{props.name}</h2>
-          <p class="box_desc">{props.desc}</p>
-          <p class="box_insta_count">{props.instatCount}</p>
+        <div className="box_txt">
+          <h2 className="box_title">{props.name}</h2>
+          <p className="box_desc">{props.desc}</p>
+          <p className="box_insta_count">{props.instatCount}</p>
         </div>
       </a>
     </li>
@@ -75,10 +75,10 @@ class SearchResult extends Component {
   }
   render() {
     return (
-      <div class="main_container fullwidth">
-        <main class="main search_result">
-          <p class="search_count">검색결과 : {this.state.searchCount} 건</p>
-          <ul class="box_container">
+      <div className="main_container fullwidth">
+        <main className="main search_result">
+          <p className="search_count">검색결과 : {this.state.searchCount} 건</p>
+          <ul className="box_container">
             {this.state.searchList.map((searchList, i) => {
               return (
               <BoxItem
@@ -90,7 +90,7 @@ class SearchResult extends Component {
               key={i}
             />);})}
           </ul>
-          <p class="loading">다음 페이지를 불러오고 있습니다.</p>
+          <p className="loading">다음 페이지를 불러오고 있습니다.</p>
         </main>
         {/* <Footer /> */}
       </div>

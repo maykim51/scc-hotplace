@@ -9,8 +9,8 @@ function SearchInput(props) {
         title="검색"
         className="search_input"
         placeholder="강남역"
-        onFocus={props.cursorOn} 
-        onBlur={props.cursorOn}
+        onFocus={props.onFocus}
+        onBlur={props.onBlur}
         onChange={props.onChange}
         value={props.value}
       />
@@ -20,7 +20,7 @@ function SearchInput(props) {
 
 function SuggestList(props) {
   return (
-    <a href={props.url}>
+    <a href={props.url} onClick={props.onClick}>
       <li className="search_keyword_item">{props.name}</li>
     </a>
   );
@@ -29,14 +29,14 @@ function SuggestList(props) {
 class SearchSuggest extends Component {
   render() {
     return (
-      <div className={this.props.blind}>
+      <div
+        className={this.props.blind}
+        onMouseEnter={this.props.onMouseEnter}
+        onMouseLeave={this.props.onMouseLeave}
+      >
         <ul className="search_keyword_suggest_ul">
           <span className="search_keyword_subtitle">추천지역</span>
-          <div className="search_keyword_list">
-            {this.props.list.map((list, i) => {
-              return <SuggestList url={list.url} name={list.name} key={i}/>;
-            })}
-          </div>
+          <div className="search_keyword_list">{this.props.list}</div>
         </ul>
       </div>
     );
@@ -65,9 +65,10 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cursorOn: false,
+      inputFocus: false,
+      SuggestHover: false,
       onChange: 0,
-      value: null,
+      value: '',
       suggestList: [
         {
           url: '#',
@@ -101,8 +102,24 @@ class Search extends Component {
     };
   }
 
-  suggestHandle = () => {
-    this.setState({ cursorOn: !this.state.cursorOn });
+  suggestOn = () => {
+    if (this.state.SuggestHover === false) {
+      this.setState({ inputFocus: true });
+    }
+  };
+
+  suggestOff = () => {
+    if (this.state.SuggestHover === false) {
+      this.setState({ inputFocus: false });
+    }
+  };
+
+  suggestHoverOn = () => {
+    this.setState({ SuggestHover: true });
+  };
+
+  suggestHoverOff = () => {
+    this.setState({ SuggestHover: false });
   };
 
   inputHandle = e => {
@@ -111,29 +128,51 @@ class Search extends Component {
     this.setState({ value: value });
   };
 
-  inputClearHandle = () => {
+  inputClear = () => {
     this.setState({ value: '' });
+    this.setState({ onChange: 0 });
+  };
+
+  autoComp = keyword => {
+    this.setState({ value: keyword });
+    this.setState({ inputFocus: false });
+    this.setState({ SuggestHover: false });
+    this.setState({ onChange: keyword.length });
   };
 
   render() {
+    var sgtList = this.state.suggestList.map((list, i) => {
+      return (
+        <SuggestList
+          url={list.url}
+          name={list.name}
+          key={i}
+          onClick={() => this.autoComp(list.name)}
+        />
+      );
+    });
+
     return (
       <div className="search">
-        <form autocomplete="off">
+        <form autoComplete="off">
           <fieldset>
             <legend className="blind">검색</legend>
             <SearchInput
-              cursorOn={this.suggestHandle}
+              onFocus={this.suggestOn}
+              onBlur={this.suggestOff}
               onChange={this.inputHandle}
               value={this.state.value}
             />
             <SearchClearBtn
               blind={this.state.onChange > 0 ? 'search_clear_btn' : 'blind'}
-              onClick={this.inputClearHandle}
+              onClick={this.inputClear}
             />
             <SearchBtn />
             <SearchSuggest
-              blind={this.state.cursorOn ? 'search_keyword_suggest' : 'blind'}
-              list={this.state.suggestList}
+              blind={this.state.inputFocus ? 'search_keyword_suggest' : 'blind'}
+              list={sgtList}
+              onMouseEnter={this.suggestHoverOn}
+              onMouseLeave={this.suggestHoverOff}
             />
           </fieldset>
         </form>
