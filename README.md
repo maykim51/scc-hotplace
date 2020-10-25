@@ -7,6 +7,7 @@ SCC 핫플검색 프로젝트 - work in progress since Oct 19, 2019
 # Service Wireframe (as of 2019-10-20)
 
    ![001](/images/001.png?raw=true)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmaykim51%2Fscc-hotplace.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmaykim51%2Fscc-hotplace?ref=badge_shield)
    ![002](/images/002.png?raw=true)
    ![003](/images/003.png?raw=true)
    ![004](/images/004.png?raw=true)
@@ -17,3 +18,6 @@ SCC 핫플검색 프로젝트 - work in progress since Oct 19, 2019
 
 
 2019 copyright @ scc, HaelimKwak, HyeonjiLim, JeonghyeKim
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmaykim51%2Fscc-hotplace.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmaykim51%2Fscc-hotplace?ref=badge_large)
